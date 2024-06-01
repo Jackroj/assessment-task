@@ -23,6 +23,7 @@ export default function Modal() {
                 setEnableLoader(false);
             } catch (error) {
                 console.log("error occurred in getEditPostInfo", error);
+                ErrorToaster("please try later");
                 setEnableLoader(false);
             }
         }
