@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Routes, Route, Navigate  } from "react-router-dom";
+import Default from "./views/Default";
+import Modal from "./components/Modal";
+import DeleteModal from "./components/Modal/DeleteModal";
+import { Toaster } from 'react-hot-toast';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  return (<>
+  <BrowserRouter>
+  <Routes>
+      <Route path="posts/delete/:id*" element={<DeleteModal/>} />
+      <Route path="posts/:id" element={<Modal />} />
+      <Route path="posts" element={ <Default/>} /> 
+      <Route path="/" element={<Navigate to="/posts" replace />} />
+    </Routes>
+  </BrowserRouter>
+  <Toaster/>
+  </> 
   );
 }
 
