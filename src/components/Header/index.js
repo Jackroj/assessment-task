@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Header() {
+export default function Header({open, setOpen}) {
 
   return (
     <header className="bg-white">
@@ -16,9 +16,11 @@ export default function Header() {
             Post section
           </Link>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            <span aria-hidden="true">&rarr;</span>
-          </a>
+          <div onClick={() => setOpen(!open)}>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-8 text-green-600">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+              </svg>
+          </div>
         </div>
       </nav>
     </header>
